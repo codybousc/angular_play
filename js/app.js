@@ -5,6 +5,16 @@ var app = angular.module('store', []);
 
 app.controller('StoreController', function() {
   this.products = gems;
+});
+
+app.controller("PanelController", function() {
+  this.tab = 1; //sets initial tab
+  this.selectTab = function(setTab) { //related to the panel.selectTab(). Selects tab and removes logic from HTML
+    this.tab = setTab;
+  }
+  this.isSelected = function(checkTab) {
+    return this.tab === checkTab;
+  }; 
 
 });
 
