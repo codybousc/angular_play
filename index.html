@@ -17,13 +17,16 @@
         {{product.name}}
         <em class="pull-right">{{product.price | currency}}</em>
         <img ng-src="{{product.images[0].full}}">
-        <section>
+
+        <section ng-init="tab = 1"> <!--initializes Description Tab -->
           <ul class="nav nav-pills">
-            <li> <a href ng-click="tab = 1">Description </a> </li>
-            <li> <a href ng-click="tab = 2">Specifications</a> </li>
-            <li> <a href ng-click="tab = 3">Reviews</a> </li>
+          <!-- ng-class used to add active:tab class to active tab-->
+            <li ng-class="{ active:tab === 1}"> <a href ng-click="tab = 1">Description </a> </li>
+            <li ng-class=" {active:tab === 2}"> <a href ng-click="tab = 2">Specifications</a> </li>
+            <li ng-class=" {active:tab == 3}"> <a href ng-click="tab = 3">Reviews</a> </li>
           </ul>
         </section>
+
         <div class="panel" ng-show="tab === 1">
           <h4>Description</h4>
           <p>{{product.description}}</p>
